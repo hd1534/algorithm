@@ -30,9 +30,10 @@ int main() {
 
     // dp
     for (i=1; i<=n; i++) {
-        // 뒤로 점프가 있으므로 오른쪽 부터 처리해야됨 (왼쪽 부터 하다간 오른쪽에서 최소값 갱신이 될수 있어서)
-        for (j=n; j>0; j--) {
+        result = min(result, dp[i][n]);
 
+        // 뒤로 점프가 있으므로 오른쪽 부터 처리해야됨 (왼쪽 부터 하다간 오른쪽에서 최소값 갱신이 될수 있어서)
+        for (j=n-1; j>0; j--) {
             //  굳이 더 큰 값을 확인 할 필요 없으니.
             if (dp[i][j] < result) {
 
@@ -48,12 +49,6 @@ int main() {
             }
         }
     }
-
-
-    // find min
-    for (i=1; i<=n; i++) {
-        result = min(result, dp[i][n]);
-    } 
 
 
     // output
